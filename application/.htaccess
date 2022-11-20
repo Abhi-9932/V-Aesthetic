@@ -1,0 +1,15 @@
+# Development
+RewriteEngine On
+RewriteBase /your_local_folder/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|images|scripts|styles|vendor|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+#Production PHP5 CGI mode
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|images|scripts|styles|vendor|robots\.txt)
+RewriteRule ^(.*)$ index.php?/$1 [L]
